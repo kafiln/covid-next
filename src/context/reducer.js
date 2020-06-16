@@ -1,4 +1,12 @@
-import { CHANGE_LANGUAGE, CHANGE_THEME, DARK, LIGHT } from './types';
+import {
+  CHANGE_LANGUAGE,
+  CHANGE_THEME,
+  DARK,
+  INITIAL_INIT,
+  LANG,
+  LIGHT,
+  THEME,
+} from './types';
 
 const THEMES = [DARK, LIGHT];
 
@@ -12,15 +20,22 @@ export default (state, action) => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
       const lang = action.payload;
-      localStorage.setItem('lang', lang);
+      localStorage.setItem(LANG, lang);
       return {
         ...state,
         lang,
       };
 
+    case INITIAL_INIT:
+      return {
+        ...state,
+        theme: action.payload.theme || state.theme,
+        lang: action.payload.lang || state.lang,
+      };
+
     case CHANGE_THEME:
       const theme = toggleValue(state.theme, THEMES);
-      localStorage.setItem('theme', theme);
+      localStorage.setItem(THEME, theme);
       return {
         ...state,
         theme,

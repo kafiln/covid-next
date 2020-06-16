@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { LIGHT } from './types';
 
 export const initialState = {
-  lang: 'fr-fr',
+  lang: 'ar-ma',
   theme: LIGHT,
 };
 
