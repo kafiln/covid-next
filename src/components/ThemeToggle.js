@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
-import { AppContext, Types } from '../context';
+import { AppContext } from '../context';
+import { CHANGE_THEME } from '../context/types';
 import { Toggle } from './common';
 
-function ThemeToggle({ byDefault }) {
+function ThemeToggle({ defaultValue }) {
   const { theme, dispatch } = useContext(AppContext);
   const handleChange = () => {
     dispatch({
-      type: Types.CHANGE_THEME,
+      type: CHANGE_THEME,
     });
   };
-  return <Toggle checked={theme === byDefault} onChange={handleChange} />;
+  return <Toggle checked={theme === defaultValue} onChange={handleChange} />;
 }
 
 export default ThemeToggle;
