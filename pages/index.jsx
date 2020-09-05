@@ -1,13 +1,13 @@
 import React from 'react';
 import { getData } from '../src/api';
-import { Regions, Statistics, Title } from '../src/components';
+import { Statistics, Title } from '../src/components';
 
 function Index({ data }) {
   return (
     <>
       <Title lastUpdate={data.lastUpdate} />
       <Statistics data={data} />
-      {data.regions && <Regions regions={data.regions}></Regions>}
+      {/* {data.regions && <Regions regions={data.regions}></Regions>} */}
     </>
   );
 }
